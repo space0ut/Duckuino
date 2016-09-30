@@ -1,6 +1,4 @@
 $(function() {
-  var isFileSaverSupported = init();
-
   Duck = new Duckuino();
 
   var consoleError = console.error;
@@ -37,33 +35,18 @@ $(function() {
   	  editor.getDoc().setValue(Duck.compile(editor2.getValue()));
   });
 
-  // Download button
-  $("#download").click(function(e) {
-    // Create a zip and download
-    var sketchName = $("#payloadName").val();
-    var sketchValue = editor.getValue();
-    var zipHandler = new JSZip();
-    zipHandler.file(sketchName + "/" + sketchName + ".ino", sketchValue);
-    zipHandler.file("readme", $.ajax({
-      url: 'readme.default',
-      type: 'get',
-      success: function(data) {return data;}
-    }));
-    zipHandler.generateAsync({type:"blob"})
-      .then(function(content) {
-        saveAs(content, sketchName + ".zip");
-      }
-    );
+
+  $("#download").click(function() {
+    $("<a />", {
+        download: $("#payloadName").val() + ".ino",
+        href: URL.createObjectURL(
+          new Blob([editor.getValue()], {
+            type: "text/plain"
+          }))
+      })
+      .appendTo("body")[0].click();
+      $(window).one("focus", function() {
+        $("a").last().remove()
+      })
   });
 });
-
-function init()
-{
-  // Init page
-  $("#download").prop('disabled', true); // Disable download button by default
-
-  // Check if download button can be used
-  try {
-    return !!new Blob;
-  } catch (e) {}
-}
