@@ -37,10 +37,17 @@ $(function() {
 
 
   $("#download").click(function() {
+    var payloadName = $("#payloadName").val();
+    var payloadValue = editor.getValue();
+    if(payloadValue == undefined || payloadName == undefined || payloadValue == 'Error, look at the console...'){
+      alert('Payload name or code is empty!');
+      return;
+    }
+
     $("<a />", {
-        download: $("#payloadName").val() + ".ino",
+        download: payloadName + ".ino",
         href: URL.createObjectURL(
-          new Blob([editor.getValue()], {
+          new Blob([payloadValue], {
             type: "text/plain"
           }))
       })
