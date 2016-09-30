@@ -1,4 +1,6 @@
 $(function() {
+  var isFileSaverSupported = init();
+
   Duck = new Duckuino();
 
   var consoleError = console.error;
@@ -36,12 +38,12 @@ $(function() {
   });
 
   // Download button
-  $("#download").click(function() {
+  $("#download").click(function(e) {
     // Create a zip and download
     var sketchName = $("#payloadName").val();
-
+    var sketchValue = editor.getValue();
     var zipHandler = new JSZip();
-    zipHandler.file(sketchName + "/" + sketchName + ".ino", editor.getValue());
+    zipHandler.file(sketchName + "/" + sketchName + ".ino", sketchValue);
     zipHandler.file("readme", $.ajax({
       url: 'readme.default',
       type: 'get',
@@ -54,3 +56,14 @@ $(function() {
     );
   });
 });
+
+function init()
+{
+  // Init page
+  $("#download").prop('disabled', true); // Disable download button by default
+
+  // Check if download button can be used
+  try {
+    return !!new Blob;
+  } catch (e) {}
+}
