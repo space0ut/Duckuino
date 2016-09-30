@@ -39,7 +39,7 @@ $(function() {
   $("#download").click(function() {
     var payloadName = $("#payloadName").val();
     var payloadValue = editor.getValue();
-    if(payloadValue == undefined || payloadName == undefined || payloadValue == 'Error, look at the console...'){
+    if(payloadValue == undefined || payloadName == undefined || payloadValue == '' || payloadName == '' || payloadValue == 'Error, look at the console...'){
       alert('Payload name or code is empty!');
       return;
     }
