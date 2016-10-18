@@ -89,7 +89,14 @@ class Duckuino {
     } 
 
     // Build the Arduino code skeleton
-    return '// Init function\n'
+    return '#<include <Keyboad.h>\n'
+    + '#<include <Mouse.h>\n'
+    + '  // Utility function\n'
+    + '  void typeKey(int key){\n'
+    + '    Keyboard.press(key);\n'
+    + '    delay(50);\n'
+    + '    Keyboard.release(key);\n'
+    + '  }\n\n'
     + 'void setup()\n'
     + '{\n'
     + '  // Start Keyboard and Mouse\n'
@@ -99,12 +106,6 @@ class Duckuino {
     + parsedDucky
     + '\n'
     + '  // End Payload\n\n'
-    + '  // Utility function\n'
-    + '  void typeKey(int key){\n'
-    + '    Keyboard.press(key);\n'
-    + '    delay(50);\n'
-    + '    Keyboard.release(key);\n'
-    + '  }\n\n'
     + '  // Stop Keyboard and Mouse\n'
     + '  Keyboard.end();\n'
     + '  Mouse.end();\n'
