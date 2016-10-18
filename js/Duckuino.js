@@ -89,8 +89,8 @@ class Duckuino {
     } 
 
     // Build the Arduino code skeleton
-    return '#<include <Keyboard.h>\n'
-    + '#<include <Mouse.h>\n\n'
+    return '#include <Keyboard.h>\n'
+    + '#include <Mouse.h>\n\n'
     + '// Utility function\n'
     + 'void typeKey(int key){\n'
     + '  Keyboard.press(key);\n'
