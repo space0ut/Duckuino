@@ -5,6 +5,8 @@ The original Rubber Ducky cannot perform Mouse control, But the Duckuino sure ca
 
 ##Live version here: https://d4n5h.github.io/Duckuino/
 
+###NOTE: You should update the Arduino IDE to the latest version for better cross-platform compatibility!
+
 ###Commands:
 https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript
 
