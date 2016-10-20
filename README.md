@@ -5,7 +5,7 @@ Simple DuckyScript -> Arduino converter/compiler.
 
 The original Rubber Ducky cannot perform Mouse control, But the Duckuino sure can.
 
-###NOTE: You should update the Arduino IDE to the latest version for better cross-platform compatibility!
+###NOTE: You should update the Arduino IDE to the latest version for better cross-platform compatibility! (Or use the Arduino Create Web IDE)
 
 ###Commands:
 https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript
