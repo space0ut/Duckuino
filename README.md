@@ -4,7 +4,7 @@ Simple DuckyScript -> Arduino converter/compiler.
 The original Rubber Ducky cannot perform Mouse control, But the Duckuino sure can.
 
 ```diff
-- ### DEPENDENCY: https://github.com/NicoHood/HID (*IMPORTANT!*)
+- DEPENDENCY: https://github.com/NicoHood/HID (*IMPORTANT!*)
 ```
 ###NOTE: You should update the Arduino IDE to the latest version for better cross-platform compatibility! (Or use the Arduino Create Web IDE)
 
