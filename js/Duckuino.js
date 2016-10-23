@@ -91,8 +91,7 @@ class Duckuino {
     } 
 
     // Build the Arduino code skeleton
-    return '#include <Keyboard.h>\n'
-    + '#include <Mouse.h>\n\n'
+    return '#include "HID-Project.h"\n\n'
     + '// Utility function\n'
     + 'void typeKey(int key){\n'
     + '  Keyboard.press(key);\n'
@@ -229,7 +228,7 @@ class Duckuino {
           if (wordArray[0] != undefined && wordArray[0] != ''){
             commandKnown = true;
             var mouseParams = wordArray[0].split(',');
-            parsedOut += '  Mouse.move('+mouseParams[0]+', '+mouseParams[1];
+            parsedOut += '  AbsoluteMouse.move('+mouseParams[0]+', '+mouseParams[1];
 
             if(mouseParams[2] != undefined && mouseParams[2] != ''){
               parsedOut += ', '+mouseParams[2];
@@ -248,7 +247,7 @@ class Duckuino {
 
           if (wordArray[0] == 'LEFT' || wordArray[0] == 'RIGHT' || wordArray[0] == 'MIDDLE' && wordArray[0] != undefined && wordArray[0] != ''){
             commandKnown = true;
-            parsedOut += '  Mouse.click(MOUSE_'+wordArray[0]+');\n'
+            parsedOut += '  AbsoluteMouse.click(MOUSE_'+wordArray[0]+');\n'
             wordArray.shift();
           } else {
             console.error('Error: at line: ' + (i + 1) + ', MOUSECLICK requires key (left/middle/right)')
