@@ -6,6 +6,8 @@ The original Rubber Ducky cannot perform Mouse control, But the Duckuino sure ca
 ```diff
 - DEPENDENCY: https://github.com/NicoHood/HID (*IMPORTANT!*)
 ```
+Download HID-Project from: https://github.com/NicoHood/HID/archive/master.zip and add it to Arduino Library.
+
 ###NOTE: You should update the Arduino IDE to the latest version for better cross-platform compatibility! (Or use the Arduino Create Web IDE)
 
 ###Commands: https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript
