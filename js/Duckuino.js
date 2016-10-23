@@ -101,7 +101,7 @@ class Duckuino {
     + 'void setup()\n'
     + '{\n'
     + '  // Start Keyboard and Mouse\n'
-    + '  Mouse.begin();\n'
+    + '  AbsoluteMouse.begin();\n'
     + '  Keyboard.begin();\n\n'
     + '  // Start Payload\n'
     + parsedDucky
@@ -109,7 +109,7 @@ class Duckuino {
     + '  // End Payload\n\n'
     + '  // Stop Keyboard and Mouse\n'
     + '  Keyboard.end();\n'
-    + '  Mouse.end();\n'
+    + '  AbsoluteMouse.end();\n'
     + '}\n'
     + '\n'
     + '// Unused\n'
