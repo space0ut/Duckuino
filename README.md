@@ -1,7 +1,6 @@
 #Duckuino
 ##Live version here: https://d4n5h.github.io/Duckuino/
-Simple DuckyScript -> Arduino converter/compiler.
-The original Rubber Ducky cannot perform Mouse control, But the Duckuino sure can.
+DuckyScript -> Arduino converter/compiler + HID mouse emulation.
 
 ```diff
 - DEPENDENCY: https://github.com/NicoHood/HID (*IMPORTANT!*)
