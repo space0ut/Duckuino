@@ -95,7 +95,8 @@ class Duckuino {
     } 
 
     // Build the Arduino code skeleton
-    return '#include "HID-Project.h"\n\n'
+    return '#include <HID-Project.h>\n'
+    + '#include <HID-Settings.h>\n\n'
     + '// Utility function\n'
     + 'void typeKey(int key){\n'
     + '  Keyboard.press(key);\n'
