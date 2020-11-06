@@ -86,7 +86,7 @@ class Duckuino {
     {
       console.error('Error: No ducky script was entered!');
       return 'Error, look at the console...';
-    } 
+    }
 
     var parsedDucky = this.parser(inputCode);
     if (parsedDucky == '' || parsedDucky == undefined)
@@ -95,8 +95,8 @@ class Duckuino {
     } 
 
     // Build the Arduino code skeleton
-    return '#include <HID-Project.h>\n'
-    + '#include <HID-Settings.h>\n\n'
+    return '#include <Keyboard.h>\n'
+    + '#include <Mouse.h>\n\n'
     + '// Utility function\n'
     + 'void typeKey(int key){\n'
     + '  Keyboard.press(key);\n'
@@ -106,7 +106,7 @@ class Duckuino {
     + 'void setup()\n'
     + '{\n'
     + '  // Start Keyboard and Mouse\n'
-    + '  AbsoluteMouse.begin();\n'
+    + '  Mouse.begin();\n'
     + '  Keyboard.begin();\n\n'
     + '  // Start Payload\n'
     + parsedDucky
@@ -114,7 +114,7 @@ class Duckuino {
     + '  // End Payload\n\n'
     + '  // Stop Keyboard and Mouse\n'
     + '  Keyboard.end();\n'
-    + '  AbsoluteMouse.end();\n'
+    + '  Mouse.end();\n'
     + '}\n'
     + '\n'
     + '// Unused\n'
@@ -233,7 +233,7 @@ class Duckuino {
           if (wordArray[0] != undefined && wordArray[0] != ''){
             commandKnown = true;
             var mouseParams = wordArray[0].split(',');
-            parsedOut += '  AbsoluteMouse.move('+mouseParams[0]+', '+mouseParams[1];
+            parsedOut += '  Mouse.move('+mouseParams[0]+', '+mouseParams[1];
 
             if(mouseParams[2] != undefined && mouseParams[2] != ''){
               parsedOut += ', '+mouseParams[2];
@@ -245,14 +245,14 @@ class Duckuino {
             console.error('Error: at line: ' + (i + 1) + ', MOUSEMOVE requires at least two parameters')
             return;
           }
-          break;       
+          break;
         case "MOUSECLICK":
           wordArray.shift();
           wordArray[0] = wordArray[0].toUpperCase();
 
           if (wordArray[0] == 'LEFT' || wordArray[0] == 'RIGHT' || wordArray[0] == 'MIDDLE' && wordArray[0] != undefined && wordArray[0] != ''){
             commandKnown = true;
-            parsedOut += '  AbsoluteMouse.click(MOUSE_'+wordArray[0]+');\n'
+            parsedOut += '  Mouse.click(MOUSE_'+wordArray[0]+');\n'
             wordArray.shift();
           } else {
             console.error('Error: at line: ' + (i + 1) + ', MOUSECLICK requires key (left/middle/right)')
